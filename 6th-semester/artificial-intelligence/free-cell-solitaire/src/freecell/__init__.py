@@ -1,0 +1,1 @@
+"""FreeCell Solitaire solver package."""
