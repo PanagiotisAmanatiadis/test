@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option csharp_namespace = "Lab12.Server";
+
+package emailstore;
+
+// Thread-safe in-memory email store.
+service EmailStore {
+  rpc Send     (SendRequest)  returns (SendReply);
+  rpc GetAll   (GetRequest)   returns (GetReply);
+  rpc GetInbox (InboxRequest) returns (GetReply);
+}
+
+message SendRequest {
+  string from    = 1;
+  string to      = 2;
+  string subject = 3;
+  string body    = 4;
+}
+
+message SendReply {
+  int32 id = 1;  // assigned message id
+}
+
+message GetRequest {}
+
+message InboxRequest {
+  string recipient = 1;
+}
+
+message EmailMessage {
+  int32  id      = 1;
+  string from    = 2;
+  string to      = 3;
+  string subject = 4;
+  string body    = 5;
+}
+
+message GetReply {
+  repeated EmailMessage messages = 1;
+}

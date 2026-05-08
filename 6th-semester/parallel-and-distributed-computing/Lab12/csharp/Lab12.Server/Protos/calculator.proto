@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "Lab12.Server";
+
+package calculator;
+
+// Simple four-function calculator service.
+service Calculator {
+  rpc Add      (BinaryRequest) returns (NumberReply);
+  rpc Subtract (BinaryRequest) returns (NumberReply);
+  rpc Multiply (BinaryRequest) returns (NumberReply);
+  rpc Divide   (BinaryRequest) returns (NumberReply);
+}
+
+message BinaryRequest {
+  double a = 1;
+  double b = 2;
+}
+
+message NumberReply {
+  double result = 1;
+  string error  = 2;  // non-empty when an error occurred (e.g. division by zero)
+}
