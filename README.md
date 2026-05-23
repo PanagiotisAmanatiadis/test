@@ -40,6 +40,7 @@ All assignments have been refactored to reflect professional, enterprise-grade c
 ### Semester 7
 - **Information Retrieval**: Movie recommender system in Python implementing User-Based CF, Item-Based CF, and SVD collaborative filtering with cosine similarity and Pearson correlation.
 - **Knowledge Discovery from Databases**: Instance selection algorithms (IB2 and ENN) implemented as a Python OOP package with vectorised k-NN and batch sklearn NearestNeighbors.
+- **Machine Learning**: Three production-grade Python pipelines (uv, OmegaConf, loguru, src layout, factory pattern): (1) corporate bankruptcy classification — 8 classifiers, Stratified 4-Fold CV, random undersampling; (2) Fashion-MNIST dimensionality reduction & clustering; (3) diabetes progression regression — 4 models, 6-Fold CV, RandomizedSearchCV, SHAP explainability.
 
 ### Semester 8
 - **Applied Numerical Analysis**: (1) Anti-missile defence simulation with RK4 ODE integration and intercept geometry; (2) 3-D Signed Distance Field computation via the Fast Marching Method.
