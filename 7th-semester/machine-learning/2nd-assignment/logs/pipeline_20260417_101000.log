@@ -1,0 +1,8 @@
+2026-04-17 10:10:00.936 | INFO     | fashion_clustering.pipeline.experiment:__init__:50 - ExperimentRunner initialized from configs/config.yaml
+2026-04-17 10:10:00.936 | INFO     | fashion_clustering.data.dataset:__init__:41 - Loading Fashion-MNIST dataset...
+2026-04-17 10:10:06.408 | INFO     | fashion_clustering.data.dataset:__init__:70 - Dataset loaded — Train: (50004, 784), Val: (9996, 784), Test: (10000, 784)
+2026-04-17 10:10:06.408 | DEBUG    | fashion_clustering.data.dataset:__init__:74 - Label distribution (train): [5001 5001 5000 5000 5000 5001 5000 5000 5001 5000]
+2026-04-17 10:10:06.424 | INFO     | fashion_clustering.visualization.plotter:__init__:46 - Plotter initialized — figures_dir=reports/figures, dpi=150
+2026-04-17 10:10:06.424 | INFO     | fashion_clustering.evaluation.metrics:__init__:53 - MetricsEvaluator initialized — silhouette_sample_size=2000
+2026-04-17 10:10:06.720 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\sample_images.png
+2026-04-17 10:10:06.720 | INFO     | fashion_clustering.pipeline.experiment:run:91 - === Feature space: RAW ===

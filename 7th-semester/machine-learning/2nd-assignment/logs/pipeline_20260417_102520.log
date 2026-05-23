@@ -1,0 +1,248 @@
+2026-04-17 10:25:20.087 | INFO     | fashion_clustering.pipeline.experiment:__init__:50 - ExperimentRunner initialized from configs/config.yaml
+2026-04-17 10:25:20.087 | INFO     | fashion_clustering.data.dataset:__init__:41 - Loading Fashion-MNIST dataset...
+2026-04-17 10:25:20.535 | INFO     | fashion_clustering.data.dataset:__init__:70 - Dataset loaded — Train: (50004, 784), Val: (9996, 784), Test: (10000, 784)
+2026-04-17 10:25:20.535 | DEBUG    | fashion_clustering.data.dataset:__init__:74 - Label distribution (train): [5001 5001 5000 5000 5000 5001 5000 5000 5001 5000]
+2026-04-17 10:25:20.554 | INFO     | fashion_clustering.visualization.plotter:__init__:46 - Plotter initialized — figures_dir=reports/figures, dpi=150
+2026-04-17 10:25:20.554 | INFO     | fashion_clustering.evaluation.metrics:__init__:53 - MetricsEvaluator initialized — silhouette_sample_size=2000
+2026-04-17 10:25:20.866 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\sample_images.png
+2026-04-17 10:25:20.866 | INFO     | fashion_clustering.pipeline.experiment:run:91 - === Feature space: RAW ===
+2026-04-17 10:25:20.873 | INFO     | fashion_clustering.reduction.pca_reducer:__init__:27 - PCAReducer initialized with n_components=50
+2026-04-17 10:25:20.873 | INFO     | fashion_clustering.clustering.minibatch_kmeans:__init__:27 - MiniBatchKMeansClusterer initialized — k=10
+2026-04-17 10:25:20.873 | INFO     | fashion_clustering.clustering.minibatch_kmeans:fit_predict:38 - Running MiniBatch K-Means on (10000, 784)
+2026-04-17 10:25:23.132 | INFO     | fashion_clustering.clustering.minibatch_kmeans:fit_predict:40 - MiniBatch K-Means found 10 clusters
+2026-04-17 10:25:23.381 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 1174.94, DB: 2.0131, Sil: 0.1160, ARI: 0.3529
+2026-04-17 10:25:23.382 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [raw] Raw + MiniBatchKMeans — ARI=0.3529
+2026-04-17 10:25:23.848 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_raw_minibatchkmeans.png
+2026-04-17 10:25:23.848 | INFO     | fashion_clustering.clustering.dbscan_clusterer:__init__:26 - DBSCANClusterer initialized — eps=0.5, min_samples=5
+2026-04-17 10:25:23.848 | INFO     | fashion_clustering.clustering.dbscan_clusterer:fit_predict:37 - Running DBSCAN on (10000, 784)
+2026-04-17 10:25:25.048 | INFO     | fashion_clustering.clustering.dbscan_clusterer:fit_predict:43 - DBSCAN found 0 clusters, 10000 noise points
+2026-04-17 10:25:25.048 | WARNING  | fashion_clustering.clustering.dbscan_clusterer:fit_predict:45 - DBSCAN found 0 clusters — all points classified as noise
+2026-04-17 10:25:25.048 | WARNING  | fashion_clustering.evaluation.metrics:evaluate:75 - Only 0 cluster(s) found — metrics may be undefined. Returning default values.
+2026-04-17 10:25:25.048 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [raw] Raw + DBSCAN — ARI=0.0000
+2026-04-17 10:25:25.697 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_raw_dbscan.png
+2026-04-17 10:25:25.697 | INFO     | fashion_clustering.clustering.agglomerative_clusterer:__init__:24 - AgglomerativeClusterer initialized — n_clusters=10, linkage=ward
+2026-04-17 10:25:25.697 | INFO     | fashion_clustering.clustering.agglomerative_clusterer:fit_predict:37 - Running Agglomerative Clustering on (10000, 784)
+2026-04-17 10:25:45.418 | INFO     | fashion_clustering.clustering.agglomerative_clusterer:fit_predict:39 - Agglomerative found 10 clusters
+2026-04-17 10:25:45.691 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 1116.13, DB: 1.9335, Sil: 0.1109, ARI: 0.3478
+2026-04-17 10:25:45.691 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [raw] Raw + Agglomerative — ARI=0.3478
+2026-04-17 10:25:46.203 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_raw_agglomerative.png
+2026-04-17 10:25:46.203 | INFO     | fashion_clustering.clustering.gmm_clusterer:__init__:34 - GMMClusterer initialized — n_components=10, covariance_type=full
+2026-04-17 10:25:46.203 | INFO     | fashion_clustering.clustering.gmm_clusterer:fit_predict:48 - Running GMM on (10000, 784)
+2026-04-17 10:26:30.981 | INFO     | fashion_clustering.clustering.gmm_clusterer:fit_predict:50 - GMM found 10 components
+2026-04-17 10:26:31.232 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 1031.48, DB: 2.0628, Sil: 0.1213, ARI: 0.3346
+2026-04-17 10:26:31.232 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [raw] Raw + GMM — ARI=0.3346
+2026-04-17 10:26:31.715 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_raw_gmm.png
+2026-04-17 10:26:31.716 | INFO     | fashion_clustering.clustering.hdbscan_clusterer:__init__:24 - HDBSCANClusterer initialized — min_cluster_size=50
+2026-04-17 10:26:31.718 | INFO     | fashion_clustering.clustering.hdbscan_clusterer:fit_predict:35 - Running HDBSCAN on (10000, 784)
+2026-04-17 10:27:42.464 | INFO     | fashion_clustering.clustering.hdbscan_clusterer:fit_predict:41 - HDBSCAN found 3 clusters, 9371 noise points
+2026-04-17 10:27:42.484 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 571.88, DB: 0.9106, Sil: 0.4407, ARI: 0.9422
+2026-04-17 10:27:42.484 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [raw] Raw + HDBSCAN — ARI=0.9422
+2026-04-17 10:27:43.133 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_raw_hdbscan.png
+2026-04-17 10:27:43.133 | INFO     | fashion_clustering.pipeline.experiment:run:91 - === Feature space: REDUCED ===
+2026-04-17 10:27:43.133 | INFO     | fashion_clustering.reduction.pca_reducer:__init__:27 - PCAReducer initialized with n_components=50
+2026-04-17 10:27:43.133 | INFO     | fashion_clustering.reduction.pca_reducer:fit:39 - Fitting PCA on data with shape (50004, 784)
+2026-04-17 10:27:43.445 | INFO     | fashion_clustering.reduction.pca_reducer:fit:43 - PCA fit complete — explained variance: 0.8626
+2026-04-17 10:27:43.445 | INFO     | fashion_clustering.pipeline.experiment:run:120 - PCA fit took 0.31s
+2026-04-17 10:27:43.445 | DEBUG    | fashion_clustering.reduction.pca_reducer:transform:56 - PCA transform: (10000, 784) -> (10000, 50)
+2026-04-17 10:27:43.662 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\reconstructions_pca.png
+2026-04-17 10:27:43.765 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\pca_variance_explained.png
+2026-04-17 10:27:43.765 | DEBUG    | fashion_clustering.reduction.pca_reducer:transform:56 - PCA transform: (10000, 784) -> (10000, 50)
+2026-04-17 10:27:43.765 | INFO     | fashion_clustering.pipeline.experiment:_plot_justification:227 - Creating t-SNE 2D projection of PCA latent space
+2026-04-17 10:27:57.004 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\latent_scatter_pca.png
+2026-04-17 10:27:57.006 | INFO     | fashion_clustering.clustering.minibatch_kmeans:__init__:27 - MiniBatchKMeansClusterer initialized — k=10
+2026-04-17 10:27:57.006 | INFO     | fashion_clustering.clustering.minibatch_kmeans:fit_predict:38 - Running MiniBatch K-Means on (10000, 50)
+2026-04-17 10:27:57.125 | INFO     | fashion_clustering.clustering.minibatch_kmeans:fit_predict:40 - MiniBatch K-Means found 10 clusters
+2026-04-17 10:27:57.204 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 1747.88, DB: 1.6414, Sil: 0.1826, ARI: 0.3618
+2026-04-17 10:27:57.204 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] PCA + MiniBatchKMeans — ARI=0.3618
+2026-04-17 10:27:57.692 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_pca_minibatchkmeans.png
+2026-04-17 10:27:57.692 | INFO     | fashion_clustering.clustering.dbscan_clusterer:__init__:26 - DBSCANClusterer initialized — eps=0.5, min_samples=5
+2026-04-17 10:27:57.692 | INFO     | fashion_clustering.clustering.dbscan_clusterer:fit_predict:37 - Running DBSCAN on (10000, 50)
+2026-04-17 10:27:57.838 | INFO     | fashion_clustering.clustering.dbscan_clusterer:fit_predict:43 - DBSCAN found 0 clusters, 10000 noise points
+2026-04-17 10:27:57.838 | WARNING  | fashion_clustering.clustering.dbscan_clusterer:fit_predict:45 - DBSCAN found 0 clusters — all points classified as noise
+2026-04-17 10:27:57.838 | WARNING  | fashion_clustering.evaluation.metrics:evaluate:75 - Only 0 cluster(s) found — metrics may be undefined. Returning default values.
+2026-04-17 10:27:57.838 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] PCA + DBSCAN — ARI=0.0000
+2026-04-17 10:27:58.406 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_pca_dbscan.png
+2026-04-17 10:27:58.406 | INFO     | fashion_clustering.clustering.agglomerative_clusterer:__init__:24 - AgglomerativeClusterer initialized — n_clusters=10, linkage=ward
+2026-04-17 10:27:58.407 | INFO     | fashion_clustering.clustering.agglomerative_clusterer:fit_predict:37 - Running Agglomerative Clustering on (10000, 50)
+2026-04-17 10:28:01.553 | INFO     | fashion_clustering.clustering.agglomerative_clusterer:fit_predict:39 - Agglomerative found 10 clusters
+2026-04-17 10:28:01.638 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 1563.95, DB: 1.5759, Sil: 0.1782, ARI: 0.3544
+2026-04-17 10:28:01.638 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] PCA + Agglomerative — ARI=0.3544
+2026-04-17 10:28:02.386 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_pca_agglomerative.png
+2026-04-17 10:28:02.386 | INFO     | fashion_clustering.clustering.gmm_clusterer:__init__:34 - GMMClusterer initialized — n_components=10, covariance_type=full
+2026-04-17 10:28:02.386 | INFO     | fashion_clustering.clustering.gmm_clusterer:fit_predict:48 - Running GMM on (10000, 50)
+2026-04-17 10:28:06.154 | INFO     | fashion_clustering.clustering.gmm_clusterer:fit_predict:50 - GMM found 10 components
+2026-04-17 10:28:06.222 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 1047.91, DB: 2.6270, Sil: 0.1087, ARI: 0.4363
+2026-04-17 10:28:06.222 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] PCA + GMM — ARI=0.4363
+2026-04-17 10:28:06.703 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_pca_gmm.png
+2026-04-17 10:28:06.703 | INFO     | fashion_clustering.clustering.hdbscan_clusterer:__init__:24 - HDBSCANClusterer initialized — min_cluster_size=50
+2026-04-17 10:28:06.703 | INFO     | fashion_clustering.clustering.hdbscan_clusterer:fit_predict:35 - Running HDBSCAN on (10000, 50)
+2026-04-17 10:28:08.387 | INFO     | fashion_clustering.clustering.hdbscan_clusterer:fit_predict:41 - HDBSCAN found 2 clusters, 3082 noise points
+2026-04-17 10:28:08.436 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 54.95, DB: 1.4550, Sil: 0.0935, ARI: 0.0028
+2026-04-17 10:28:08.448 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] PCA + HDBSCAN — ARI=0.0028
+2026-04-17 10:28:08.934 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_pca_hdbscan.png
+2026-04-17 10:28:08.934 | INFO     | fashion_clustering.reduction.sae_reducer:__init__:46 - SAEReducer initialized — layers=[512, 256, 128, 64], latent_dim=32, epochs=30
+2026-04-17 10:28:08.935 | INFO     | fashion_clustering.reduction.sae_reducer:fit:95 - Training SAE on data with shape (50004, 784)
+2026-04-17 10:28:09.049 | DEBUG    | fashion_clustering.reduction.sae_reducer:_build_model:81 - SAE model built — parameters: 1153712
+2026-04-17 10:30:17.106 | INFO     | fashion_clustering.reduction.sae_reducer:fit:110 - SAE training complete — final loss: 0.011390
+2026-04-17 10:30:17.106 | INFO     | fashion_clustering.pipeline.experiment:run:120 - SAE fit took 128.18s
+2026-04-17 10:30:17.751 | DEBUG    | fashion_clustering.reduction.sae_reducer:transform:130 - SAE transform: (10000, 784) -> (10000, 32)
+2026-04-17 10:30:19.137 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\reconstructions_sae.png
+2026-04-17 10:30:19.649 | DEBUG    | fashion_clustering.reduction.sae_reducer:transform:130 - SAE transform: (10000, 784) -> (10000, 32)
+2026-04-17 10:30:19.649 | INFO     | fashion_clustering.pipeline.experiment:_plot_justification:227 - Creating t-SNE 2D projection of SAE latent space
+2026-04-17 10:30:36.675 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\latent_scatter_sae.png
+2026-04-17 10:30:36.675 | INFO     | fashion_clustering.clustering.minibatch_kmeans:__init__:27 - MiniBatchKMeansClusterer initialized — k=10
+2026-04-17 10:30:36.675 | INFO     | fashion_clustering.clustering.minibatch_kmeans:fit_predict:38 - Running MiniBatch K-Means on (10000, 32)
+2026-04-17 10:30:36.862 | INFO     | fashion_clustering.clustering.minibatch_kmeans:fit_predict:40 - MiniBatch K-Means found 10 clusters
+2026-04-17 10:30:36.955 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 2180.00, DB: 1.6120, Sil: 0.1850, ARI: 0.2235
+2026-04-17 10:30:36.956 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] SAE + MiniBatchKMeans — ARI=0.2235
+2026-04-17 10:30:37.490 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_sae_minibatchkmeans.png
+2026-04-17 10:30:37.490 | INFO     | fashion_clustering.clustering.dbscan_clusterer:__init__:26 - DBSCANClusterer initialized — eps=0.5, min_samples=5
+2026-04-17 10:30:37.490 | INFO     | fashion_clustering.clustering.dbscan_clusterer:fit_predict:37 - Running DBSCAN on (10000, 32)
+2026-04-17 10:30:37.592 | INFO     | fashion_clustering.clustering.dbscan_clusterer:fit_predict:43 - DBSCAN found 0 clusters, 10000 noise points
+2026-04-17 10:30:37.592 | WARNING  | fashion_clustering.clustering.dbscan_clusterer:fit_predict:45 - DBSCAN found 0 clusters — all points classified as noise
+2026-04-17 10:30:37.592 | WARNING  | fashion_clustering.evaluation.metrics:evaluate:75 - Only 0 cluster(s) found — metrics may be undefined. Returning default values.
+2026-04-17 10:30:37.592 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] SAE + DBSCAN — ARI=0.0000
+2026-04-17 10:30:38.359 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_sae_dbscan.png
+2026-04-17 10:30:38.359 | INFO     | fashion_clustering.clustering.agglomerative_clusterer:__init__:24 - AgglomerativeClusterer initialized — n_clusters=10, linkage=ward
+2026-04-17 10:30:38.359 | INFO     | fashion_clustering.clustering.agglomerative_clusterer:fit_predict:37 - Running Agglomerative Clustering on (10000, 32)
+2026-04-17 10:30:41.323 | INFO     | fashion_clustering.clustering.agglomerative_clusterer:fit_predict:39 - Agglomerative found 10 clusters
+2026-04-17 10:30:41.390 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 1897.21, DB: 1.7158, Sil: 0.1279, ARI: 0.2383
+2026-04-17 10:30:41.390 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] SAE + Agglomerative — ARI=0.2383
+2026-04-17 10:30:41.889 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_sae_agglomerative.png
+2026-04-17 10:30:41.889 | INFO     | fashion_clustering.clustering.gmm_clusterer:__init__:34 - GMMClusterer initialized — n_components=10, covariance_type=full
+2026-04-17 10:30:41.889 | INFO     | fashion_clustering.clustering.gmm_clusterer:fit_predict:48 - Running GMM on (10000, 32)
+2026-04-17 10:30:46.892 | INFO     | fashion_clustering.clustering.gmm_clusterer:fit_predict:50 - GMM found 10 components
+2026-04-17 10:30:46.957 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 808.04, DB: 2.6893, Sil: -0.0126, ARI: 0.2973
+2026-04-17 10:30:46.957 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] SAE + GMM — ARI=0.2973
+2026-04-17 10:30:47.537 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_sae_gmm.png
+2026-04-17 10:30:47.537 | INFO     | fashion_clustering.clustering.hdbscan_clusterer:__init__:24 - HDBSCANClusterer initialized — min_cluster_size=50
+2026-04-17 10:30:47.537 | INFO     | fashion_clustering.clustering.hdbscan_clusterer:fit_predict:35 - Running HDBSCAN on (10000, 32)
+2026-04-17 10:30:49.195 | INFO     | fashion_clustering.clustering.hdbscan_clusterer:fit_predict:41 - HDBSCAN found 2 clusters, 8201 noise points
+2026-04-17 10:30:49.240 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 219.47, DB: 1.0143, Sil: 0.3068, ARI: 0.0503
+2026-04-17 10:30:49.240 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] SAE + HDBSCAN — ARI=0.0503
+2026-04-17 10:30:49.718 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_sae_hdbscan.png
+2026-04-17 10:30:49.719 | INFO     | fashion_clustering.reduction.cnn_sae_reducer:__init__:48 - CNNSAEReducer initialized — filters=[32, 64], latent_dim=32, epochs=30
+2026-04-17 10:30:49.719 | INFO     | fashion_clustering.reduction.cnn_sae_reducer:fit:99 - Training CNN-SAE on data with shape (50004, 28, 28, 1)
+2026-04-17 10:30:49.773 | DEBUG    | fashion_clustering.reduction.cnn_sae_reducer:_build_model:85 - CNN-SAE model built — parameters: 278369
+2026-04-17 10:51:15.788 | INFO     | fashion_clustering.reduction.cnn_sae_reducer:fit:114 - CNN-SAE training complete — final loss: 0.008974
+2026-04-17 10:51:15.788 | INFO     | fashion_clustering.pipeline.experiment:run:120 - CNN-SAE fit took 1226.08s
+2026-04-17 10:51:18.259 | DEBUG    | fashion_clustering.reduction.cnn_sae_reducer:transform:134 - CNN-SAE transform: (10000, 28, 28, 1) -> (10000, 32)
+2026-04-17 10:51:24.104 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\reconstructions_cnn_sae.png
+2026-04-17 10:51:26.200 | DEBUG    | fashion_clustering.reduction.cnn_sae_reducer:transform:134 - CNN-SAE transform: (10000, 28, 28, 1) -> (10000, 32)
+2026-04-17 10:51:26.200 | INFO     | fashion_clustering.pipeline.experiment:_plot_justification:227 - Creating t-SNE 2D projection of CNN-SAE latent space
+2026-04-17 10:51:47.139 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\latent_scatter_cnn_sae.png
+2026-04-17 10:51:47.139 | INFO     | fashion_clustering.clustering.minibatch_kmeans:__init__:27 - MiniBatchKMeansClusterer initialized — k=10
+2026-04-17 10:51:47.139 | INFO     | fashion_clustering.clustering.minibatch_kmeans:fit_predict:38 - Running MiniBatch K-Means on (10000, 32)
+2026-04-17 10:51:47.487 | INFO     | fashion_clustering.clustering.minibatch_kmeans:fit_predict:40 - MiniBatch K-Means found 10 clusters
+2026-04-17 10:51:47.601 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 1896.34, DB: 1.6016, Sil: 0.2028, ARI: 0.3655
+2026-04-17 10:51:47.602 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] CNN-SAE + MiniBatchKMeans — ARI=0.3655
+2026-04-17 10:51:48.276 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_cnn_sae_minibatchkmeans.png
+2026-04-17 10:51:48.276 | INFO     | fashion_clustering.clustering.dbscan_clusterer:__init__:26 - DBSCANClusterer initialized — eps=0.5, min_samples=5
+2026-04-17 10:51:48.276 | INFO     | fashion_clustering.clustering.dbscan_clusterer:fit_predict:37 - Running DBSCAN on (10000, 32)
+2026-04-17 10:51:48.414 | INFO     | fashion_clustering.clustering.dbscan_clusterer:fit_predict:43 - DBSCAN found 0 clusters, 10000 noise points
+2026-04-17 10:51:48.414 | WARNING  | fashion_clustering.clustering.dbscan_clusterer:fit_predict:45 - DBSCAN found 0 clusters — all points classified as noise
+2026-04-17 10:51:48.416 | WARNING  | fashion_clustering.evaluation.metrics:evaluate:75 - Only 0 cluster(s) found — metrics may be undefined. Returning default values.
+2026-04-17 10:51:48.416 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] CNN-SAE + DBSCAN — ARI=0.0000
+2026-04-17 10:51:49.159 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_cnn_sae_dbscan.png
+2026-04-17 10:51:49.159 | INFO     | fashion_clustering.clustering.agglomerative_clusterer:__init__:24 - AgglomerativeClusterer initialized — n_clusters=10, linkage=ward
+2026-04-17 10:51:49.159 | INFO     | fashion_clustering.clustering.agglomerative_clusterer:fit_predict:37 - Running Agglomerative Clustering on (10000, 32)
+2026-04-17 10:51:52.853 | INFO     | fashion_clustering.clustering.agglomerative_clusterer:fit_predict:39 - Agglomerative found 10 clusters
+2026-04-17 10:51:52.937 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 1862.70, DB: 1.4957, Sil: 0.2156, ARI: 0.3626
+2026-04-17 10:51:52.938 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] CNN-SAE + Agglomerative — ARI=0.3626
+2026-04-17 10:51:53.820 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_cnn_sae_agglomerative.png
+2026-04-17 10:51:53.820 | INFO     | fashion_clustering.clustering.gmm_clusterer:__init__:34 - GMMClusterer initialized — n_components=10, covariance_type=full
+2026-04-17 10:51:53.820 | INFO     | fashion_clustering.clustering.gmm_clusterer:fit_predict:48 - Running GMM on (10000, 32)
+2026-04-17 10:51:57.190 | INFO     | fashion_clustering.clustering.gmm_clusterer:fit_predict:50 - GMM found 10 components
+2026-04-17 10:51:57.271 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 1368.19, DB: 2.4410, Sil: 0.1608, ARI: 0.4559
+2026-04-17 10:51:57.271 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] CNN-SAE + GMM — ARI=0.4559
+2026-04-17 10:51:57.901 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_cnn_sae_gmm.png
+2026-04-17 10:51:57.901 | INFO     | fashion_clustering.clustering.hdbscan_clusterer:__init__:24 - HDBSCANClusterer initialized — min_cluster_size=50
+2026-04-17 10:51:57.901 | INFO     | fashion_clustering.clustering.hdbscan_clusterer:fit_predict:35 - Running HDBSCAN on (10000, 32)
+2026-04-17 10:51:59.671 | INFO     | fashion_clustering.clustering.hdbscan_clusterer:fit_predict:41 - HDBSCAN found 3 clusters, 2928 noise points
+2026-04-17 10:51:59.750 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 1628.83, DB: 1.3585, Sil: 0.2396, ARI: 0.1784
+2026-04-17 10:51:59.750 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] CNN-SAE + HDBSCAN — ARI=0.1784
+2026-04-17 10:52:00.368 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_cnn_sae_hdbscan.png
+2026-04-17 10:52:00.368 | INFO     | fashion_clustering.reduction.umap_reducer:__init__:36 - UMAPReducer initialized — n_components=32, n_neighbors=15, min_dist=0.1
+2026-04-17 10:52:00.368 | INFO     | fashion_clustering.reduction.umap_reducer:fit:51 - Fitting UMAP on data with shape (50004, 784)
+2026-04-17 10:53:27.559 | INFO     | fashion_clustering.reduction.umap_reducer:fit:53 - UMAP fit complete
+2026-04-17 10:53:27.559 | INFO     | fashion_clustering.pipeline.experiment:run:120 - UMAP fit took 87.19s
+2026-04-17 10:53:46.679 | DEBUG    | fashion_clustering.reduction.umap_reducer:transform:66 - UMAP transform: (10000, 784) -> (10000, 32)
+2026-04-17 10:53:51.916 | DEBUG    | fashion_clustering.reduction.umap_reducer:transform:66 - UMAP transform: (10000, 784) -> (10000, 32)
+2026-04-17 10:53:51.916 | INFO     | fashion_clustering.pipeline.experiment:_plot_justification:227 - Creating t-SNE 2D projection of UMAP latent space
+2026-04-17 10:54:07.421 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\latent_scatter_umap.png
+2026-04-17 10:54:07.422 | INFO     | fashion_clustering.clustering.minibatch_kmeans:__init__:27 - MiniBatchKMeansClusterer initialized — k=10
+2026-04-17 10:54:07.422 | INFO     | fashion_clustering.clustering.minibatch_kmeans:fit_predict:38 - Running MiniBatch K-Means on (10000, 32)
+2026-04-17 10:54:07.515 | INFO     | fashion_clustering.clustering.minibatch_kmeans:fit_predict:40 - MiniBatch K-Means found 10 clusters
+2026-04-17 10:54:07.619 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 20718.18, DB: 0.7584, Sil: 0.5192, ARI: 0.5062
+2026-04-17 10:54:07.619 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] UMAP + MiniBatchKMeans — ARI=0.5062
+2026-04-17 10:54:08.257 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_umap_minibatchkmeans.png
+2026-04-17 10:54:08.257 | INFO     | fashion_clustering.clustering.dbscan_clusterer:__init__:26 - DBSCANClusterer initialized — eps=0.5, min_samples=5
+2026-04-17 10:54:08.257 | INFO     | fashion_clustering.clustering.dbscan_clusterer:fit_predict:37 - Running DBSCAN on (10000, 32)
+2026-04-17 10:54:08.418 | INFO     | fashion_clustering.clustering.dbscan_clusterer:fit_predict:43 - DBSCAN found 5 clusters, 10 noise points
+2026-04-17 10:54:08.525 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 8815.31, DB: 0.8102, Sil: 0.3037, ARI: 0.2960
+2026-04-17 10:54:08.525 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] UMAP + DBSCAN — ARI=0.2960
+2026-04-17 10:54:09.094 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_umap_dbscan.png
+2026-04-17 10:54:09.094 | INFO     | fashion_clustering.clustering.agglomerative_clusterer:__init__:24 - AgglomerativeClusterer initialized — n_clusters=10, linkage=ward
+2026-04-17 10:54:09.095 | INFO     | fashion_clustering.clustering.agglomerative_clusterer:fit_predict:37 - Running Agglomerative Clustering on (10000, 32)
+2026-04-17 10:54:11.513 | INFO     | fashion_clustering.clustering.agglomerative_clusterer:fit_predict:39 - Agglomerative found 10 clusters
+2026-04-17 10:54:11.584 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 20620.84, DB: 0.7212, Sil: 0.5083, ARI: 0.4738
+2026-04-17 10:54:11.584 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] UMAP + Agglomerative — ARI=0.4738
+2026-04-17 10:54:12.137 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_umap_agglomerative.png
+2026-04-17 10:54:12.137 | INFO     | fashion_clustering.clustering.gmm_clusterer:__init__:34 - GMMClusterer initialized — n_components=10, covariance_type=full
+2026-04-17 10:54:12.138 | INFO     | fashion_clustering.clustering.gmm_clusterer:fit_predict:48 - Running GMM on (10000, 32)
+2026-04-17 10:54:13.517 | INFO     | fashion_clustering.clustering.gmm_clusterer:fit_predict:50 - GMM found 10 components
+2026-04-17 10:54:13.603 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 18907.83, DB: 0.8729, Sil: 0.4490, ARI: 0.4734
+2026-04-17 10:54:13.604 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] UMAP + GMM — ARI=0.4734
+2026-04-17 10:54:14.467 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_umap_gmm.png
+2026-04-17 10:54:14.467 | INFO     | fashion_clustering.clustering.hdbscan_clusterer:__init__:24 - HDBSCANClusterer initialized — min_cluster_size=50
+2026-04-17 10:54:14.468 | INFO     | fashion_clustering.clustering.hdbscan_clusterer:fit_predict:35 - Running HDBSCAN on (10000, 32)
+2026-04-17 10:54:14.837 | INFO     | fashion_clustering.clustering.hdbscan_clusterer:fit_predict:41 - HDBSCAN found 4 clusters, 0 noise points
+2026-04-17 10:54:14.914 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 11749.13, DB: 0.6622, Sil: 0.5485, ARI: 0.2951
+2026-04-17 10:54:14.914 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] UMAP + HDBSCAN — ARI=0.2951
+2026-04-17 10:54:15.461 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_umap_hdbscan.png
+2026-04-17 10:54:15.461 | INFO     | fashion_clustering.reduction.tsne_reducer:__init__:44 - TSNEReducer initialized — n_components=2, perplexity=30
+2026-04-17 10:54:15.469 | INFO     | fashion_clustering.reduction.tsne_reducer:fit:58 - Fitting t-SNE on data with shape (50004, 784)
+2026-04-17 10:58:47.229 | INFO     | fashion_clustering.reduction.tsne_reducer:fit:61 - t-SNE fit complete
+2026-04-17 10:58:47.230 | INFO     | fashion_clustering.pipeline.experiment:run:120 - t-SNE fit took 271.76s
+2026-04-17 10:58:47.230 | INFO     | fashion_clustering.reduction.tsne_reducer:transform:84 - Re-fitting t-SNE for new data with shape (10000, 784)
+2026-04-17 10:59:28.045 | DEBUG    | fashion_clustering.reduction.tsne_reducer:transform:93 - t-SNE transform: (10000, 784) -> (10000, 2)
+2026-04-17 10:59:28.045 | INFO     | fashion_clustering.reduction.tsne_reducer:transform:84 - Re-fitting t-SNE for new data with shape (10000, 784)
+2026-04-17 11:00:07.864 | DEBUG    | fashion_clustering.reduction.tsne_reducer:transform:93 - t-SNE transform: (10000, 784) -> (10000, 2)
+2026-04-17 11:00:08.240 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\latent_scatter_t_sne.png
+2026-04-17 11:00:08.240 | INFO     | fashion_clustering.clustering.minibatch_kmeans:__init__:27 - MiniBatchKMeansClusterer initialized — k=10
+2026-04-17 11:00:08.240 | INFO     | fashion_clustering.clustering.minibatch_kmeans:fit_predict:38 - Running MiniBatch K-Means on (10000, 2)
+2026-04-17 11:00:08.469 | INFO     | fashion_clustering.clustering.minibatch_kmeans:fit_predict:40 - MiniBatch K-Means found 10 clusters
+2026-04-17 11:00:08.550 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 12172.91, DB: 0.8138, Sil: 0.4095, ARI: 0.4325
+2026-04-17 11:00:08.550 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] t-SNE + MiniBatchKMeans — ARI=0.4325
+2026-04-17 11:00:09.124 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_t_sne_minibatchkmeans.png
+2026-04-17 11:00:09.124 | INFO     | fashion_clustering.clustering.dbscan_clusterer:__init__:26 - DBSCANClusterer initialized — eps=0.5, min_samples=5
+2026-04-17 11:00:09.124 | INFO     | fashion_clustering.clustering.dbscan_clusterer:fit_predict:37 - Running DBSCAN on (10000, 2)
+2026-04-17 11:00:09.154 | INFO     | fashion_clustering.clustering.dbscan_clusterer:fit_predict:43 - DBSCAN found 164 clusters, 9032 noise points
+2026-04-17 11:00:09.204 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 133257.68, DB: 0.1759, Sil: 0.8614, ARI: 0.0741
+2026-04-17 11:00:09.204 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] t-SNE + DBSCAN — ARI=0.0741
+2026-04-17 11:00:09.723 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_t_sne_dbscan.png
+2026-04-17 11:00:09.724 | INFO     | fashion_clustering.clustering.agglomerative_clusterer:__init__:24 - AgglomerativeClusterer initialized — n_clusters=10, linkage=ward
+2026-04-17 11:00:09.724 | INFO     | fashion_clustering.clustering.agglomerative_clusterer:fit_predict:37 - Running Agglomerative Clustering on (10000, 2)
+2026-04-17 11:00:11.586 | INFO     | fashion_clustering.clustering.agglomerative_clusterer:fit_predict:39 - Agglomerative found 10 clusters
+2026-04-17 11:00:11.637 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 10493.13, DB: 0.8541, Sil: 0.3667, ARI: 0.4598
+2026-04-17 11:00:11.637 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] t-SNE + Agglomerative — ARI=0.4598
+2026-04-17 11:00:12.224 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_t_sne_agglomerative.png
+2026-04-17 11:00:12.224 | INFO     | fashion_clustering.clustering.gmm_clusterer:__init__:34 - GMMClusterer initialized — n_components=10, covariance_type=full
+2026-04-17 11:00:12.224 | INFO     | fashion_clustering.clustering.gmm_clusterer:fit_predict:48 - Running GMM on (10000, 2)
+2026-04-17 11:00:12.428 | INFO     | fashion_clustering.clustering.gmm_clusterer:fit_predict:50 - GMM found 10 components
+2026-04-17 11:00:12.487 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 10094.95, DB: 0.8793, Sil: 0.3668, ARI: 0.4348
+2026-04-17 11:00:12.487 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] t-SNE + GMM — ARI=0.4348
+2026-04-17 11:00:13.500 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_t_sne_gmm.png
+2026-04-17 11:00:13.500 | INFO     | fashion_clustering.clustering.hdbscan_clusterer:__init__:24 - HDBSCANClusterer initialized — min_cluster_size=50
+2026-04-17 11:00:13.500 | INFO     | fashion_clustering.clustering.hdbscan_clusterer:fit_predict:35 - Running HDBSCAN on (10000, 2)
+2026-04-17 11:00:13.669 | INFO     | fashion_clustering.clustering.hdbscan_clusterer:fit_predict:41 - HDBSCAN found 7 clusters, 609 noise points
+2026-04-17 11:00:13.732 | INFO     | fashion_clustering.evaluation.metrics:evaluate:109 - Metrics — CH: 3895.87, DB: 0.7334, Sil: 0.2335, ARI: 0.2873
+2026-04-17 11:00:13.733 | INFO     | fashion_clustering.pipeline.experiment:run:158 - [reduced] t-SNE + HDBSCAN — ARI=0.2873
+2026-04-17 11:00:14.289 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\cluster_results_t_sne_hdbscan.png
+2026-04-17 11:00:14.289 | INFO     | fashion_clustering.pipeline.experiment:run:182 - Results saved to reports\results.csv
+2026-04-17 11:00:14.668 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\metrics_heatmap.png
+2026-04-17 11:00:14.881 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\metrics_bar_calinski_harabasz.png
+2026-04-17 11:00:15.122 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\metrics_bar_davies_bouldin.png
+2026-04-17 11:00:15.322 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\metrics_bar_silhouette.png
+2026-04-17 11:00:15.522 | INFO     | fashion_clustering.visualization.plotter:_save:59 - Saved figure: reports\figures\metrics_bar_adjusted_rand_index.png
+2026-04-17 11:00:15.522 | INFO     | fashion_clustering.pipeline.experiment:run:189 - Pipeline complete!
