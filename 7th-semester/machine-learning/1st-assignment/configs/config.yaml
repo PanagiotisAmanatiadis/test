@@ -1,0 +1,32 @@
+seed: 42
+
+data:
+  path: data/Dataset2Use_Assignment1.xlsx
+
+pipeline:
+  n_folds: 4
+  target_ratio: 3
+
+classifiers:
+  lda: {}
+  logistic_regression:
+    max_iter: 1000
+  decision_tree: {}
+  random_forest:
+    n_estimators: 100
+  knn:
+    n_neighbors: 5
+  naive_bayes: {}
+  svm:
+    probability: true
+  gradient_boosting:
+    n_estimators: 100
+    learning_rate: 0.1
+
+visualization:
+  dpi: 150
+
+paths:
+  logs_dir: logs
+  figures_dir: reports/figures
+  results_csv: reports/results/balancedDataOutcomes.csv
